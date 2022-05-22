@@ -4,6 +4,7 @@ import seaborn as sns
 import nltk
 # nltk.download("punkt")
 # nltk.download("stopwords")
+nltk.download("all")
 import re
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
