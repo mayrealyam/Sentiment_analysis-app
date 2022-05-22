@@ -1,4 +1,4 @@
 punkt
 stopwords
 wordnet
-all
+Lemmatization
