@@ -29,7 +29,7 @@ This application is for predicting customers reviews for a women clothing compan
 #st.write(data["Class Name"].unique())
 st.selectbox("Select the class name of product", data["Class Name"].dropna().unique())
 
-train_lr = joblib.load(open("C:/Users/Maryam Yusuf/Downloads/Setiment Analysis/trained_model.pkl", "rb"))
+train_lr = joblib.load(open("trained_model.pkl", "rb"))
 
 
 def predict_reviews(data):
