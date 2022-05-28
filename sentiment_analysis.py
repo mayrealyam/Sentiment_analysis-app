@@ -23,7 +23,7 @@ st.set_page_config(page_title="Natural Learning Processing App", layout="wide")
 st.write("""
 # A Simple Website for Customers' Reviews Analysis
 
-This application is for predicting customers reviews for a women clothing company 
+This application is for analysing customers reviews for a women's clothing company 
 
 """)
 
@@ -45,7 +45,6 @@ def predict_prob(data):
 
 
 def main():
-    input_rating = st.number_input("Rate the product", 0, 5)
 
     with st.form(key="review clf form"):
         raw_text = st.text_area("Type Review Here")
@@ -81,15 +80,14 @@ def main():
             polarity_score = [TextBlob(df).sentiment.polarity for df in df1]
             df_score = pd.DataFrame(data=polarity_score, columns=["pol_score"])
 
-            # get rating to dataframe
-            df_rating = pd.DataFrame({"Rating": [input_rating]})
 
             # get all the dataframe together
             global cleaned_text
-            cleaned_text = pd.concat([df, df_score, df_rating], axis=1)
-            cleaned_text["negative"] = cleaned_text["pol_score"].apply(lambda x: 1 if x < 0 else 0)
-            cleaned_text["neutral"]  = cleaned_text["pol_score"].apply(lambda x: 1 if x == 0 else 0)
-            cleaned_text["positive"] = cleaned_text["pol_score"].apply(lambda x: 1 if x > 0 else 0)
+            cleaned_text = pd.concat([df, df_score], axis=1)
+            cleaned_text["pola_cat_negative"] = cleaned_text["pol_score"].apply(lambda x: 1 if x < 0 else 0)
+            cleaned_text["pola_cat_neutral"]  = cleaned_text["pol_score"].apply(lambda x: 1 if x == 0 else 0)
+            cleaned_text["pola_cat_positive"] = cleaned_text["pol_score"].apply(lambda x: 1 if x > 0 else 0)
+
             return cleaned_text
 
         cleaned_raw_text(raw_text)
@@ -109,14 +107,14 @@ def main():
 
             st.success("Prediction")
             if prediction == 1:
-                pred = "Good Review"
+                pred = "Positive Review"
             else:
-                pred = "Bad Review"
+                pred = "Negative Review"
             st.write(pred)
 
         with col2:
             st.success("Prediction Probability")
-            prob_df = pd.DataFrame(probability, columns=["Bad", "Good"])
+            prob_df = pd.DataFrame(probability, columns=["Negative", "Positive"])
             proba_df_clean = prob_df.T.reset_index()
             proba_df_clean.columns = ["Review", "Probability"]
 

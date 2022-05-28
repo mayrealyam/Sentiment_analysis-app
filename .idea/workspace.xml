@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e9adf11c-609d-4750-8e1e-1912cbcb3b25" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sentiment_Analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Sentiment_Analysis.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sentiment_analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/sentiment_analysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trained_model.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/trained_model.pkl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
